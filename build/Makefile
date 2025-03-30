@@ -129,30 +129,6 @@ SortingVisualizer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/build
 .PHONY : SortingVisualizer/fast
 
-src/Button.o: src/Button.cpp.o
-.PHONY : src/Button.o
-
-# target to build an object file
-src/Button.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/Button.cpp.o
-.PHONY : src/Button.cpp.o
-
-src/Button.i: src/Button.cpp.i
-.PHONY : src/Button.i
-
-# target to preprocess a source file
-src/Button.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/Button.cpp.i
-.PHONY : src/Button.cpp.i
-
-src/Button.s: src/Button.cpp.s
-.PHONY : src/Button.s
-
-# target to generate assembly for a file
-src/Button.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/Button.cpp.s
-.PHONY : src/Button.cpp.s
-
 src/SortingVisualizer.o: src/SortingVisualizer.cpp.o
 .PHONY : src/SortingVisualizer.o
 
@@ -210,9 +186,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SortingVisualizer"
-	@echo "... src/Button.o"
-	@echo "... src/Button.i"
-	@echo "... src/Button.s"
 	@echo "... src/SortingVisualizer.o"
 	@echo "... src/SortingVisualizer.i"
 	@echo "... src/SortingVisualizer.s"

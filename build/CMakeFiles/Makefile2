@@ -85,12 +85,12 @@ clean: CMakeFiles/SortingVisualizer.dir/clean
 CMakeFiles/SortingVisualizer.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=1,2,3,4 "Built target SortingVisualizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=1,2,3 "Built target SortingVisualizer"
 .PHONY : CMakeFiles/SortingVisualizer.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SortingVisualizer.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SortingVisualizer.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles 0
 .PHONY : CMakeFiles/SortingVisualizer.dir/rule
@@ -102,7 +102,7 @@ SortingVisualizer: CMakeFiles/SortingVisualizer.dir/rule
 # codegen rule for target.
 CMakeFiles/SortingVisualizer.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=1,2,3,4 "Finished codegen for target SortingVisualizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=1,2,3 "Finished codegen for target SortingVisualizer"
 .PHONY : CMakeFiles/SortingVisualizer.dir/codegen
 
 # clean rule for target.

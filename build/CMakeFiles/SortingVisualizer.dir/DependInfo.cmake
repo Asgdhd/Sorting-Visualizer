@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/Button.cpp" "CMakeFiles/SortingVisualizer.dir/src/Button.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/Button.cpp.o.d"
   "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingVisualizer.cpp" "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o.d"
   "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/main.cpp" "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o.d"
   )

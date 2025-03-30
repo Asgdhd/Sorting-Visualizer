@@ -1,20 +1,23 @@
 #pragma once
 
-#include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
+#include <SFML/Window.hpp>
 
 #include "Button.hpp"
 
+namespace SortingVisualizer {
+enum class Screen {
+    MainScreen,
+    FirstScreen,
+    SecondScreen,
+    ThirdScreen
+};
 
-namespace SortingVisualizer{
-    enum class Screen {
-        MainScreen,
-        FirstScreen,
-        SecondScreen
-    };
+void StartApp();
 
-    void StartApp();
-    void RenderWindow(sf::RenderWindow& window, Screen& currentScreen, Button::Button& mainMenuButton1,
-        Button::Button& mainMenuButton2, Button::Button& screenOneBackButton, Button::Button& screenTwoBackButton, sf::Text& screenOneText,
-        sf::Text& screenTwoText);
-    }
+void RenderMainWindow(sf::RenderWindow& window, Screen& currentScreen, std::vector<Button::Button<Screen>> mainScreenButtons,
+                      Button::Button<Screen> backButton, std::vector<sf::Text> texts);
+void RenderalgorithmWindow(sf::RenderWindow& window, sf::Vector2i& mousePos, Screen& currentScreen, Button::Button<Screen>& backButton,
+                           sf::Text& text);
+
+}  // namespace SortingVisualizer

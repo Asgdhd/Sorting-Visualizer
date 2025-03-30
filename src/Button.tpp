@@ -1,12 +1,20 @@
 #include "Button.hpp"
 
 namespace Button {
-Button::Button() : isClicked(false), isEnabled(true) {
+template<typename T>
+Button<T>::Button() : isClicked(false), isEnabled(true) {
 }
 
-Button::Button(float x, float y, float width, float height, sf::Font& font, std::string text, sf::Color normalColor, sf::Color hoverColor,
-               sf::Color pressedColor)
-    : normalColor(normalColor), hoverColor(hoverColor), pressedColor(pressedColor), isClicked(false), isEnabled(true) {
+template<typename T>
+Button<T>::Button(float x, float y, float width, float height, sf::Font& font, std::string text, sf::Color normalColor, sf::Color hoverColor,
+                  sf::Color pressedColor, sf::Color unabledColor, T message)
+    : normalColor(normalColor),
+      hoverColor(hoverColor),
+      pressedColor(pressedColor),
+      unabledColor(unabledColor),
+      isClicked(false),
+      isEnabled(true),
+      message(message) {
     shape.setPosition(sf::Vector2f(x, y));
     shape.setSize(sf::Vector2f(width, height));
     shape.setFillColor(normalColor);
@@ -21,8 +29,13 @@ Button::Button(float x, float y, float width, float height, sf::Font& font, std:
                            shape.getPosition().y + (shape.getGlobalBounds().height / 2.f) - this->text.getGlobalBounds().height / 2.f);
 }
 
-void Button::update(const sf::Vector2i& mousePos) {
-    // Hover
+template<typename T>
+void Button<T>::update(const sf::Vector2i& mousePos) {
+    if (!isEnabled) {
+        currentColor = unabledColor;
+        return;
+    }
+
     if (shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
         currentColor = hoverColor;
 
@@ -41,8 +54,14 @@ void Button::update(const sf::Vector2i& mousePos) {
     shape.setFillColor(currentColor);
 }
 
-void Button::render(sf::RenderTarget& target) {
+template<typename T>
+void Button<T>::render(sf::RenderTarget& target) {
     target.draw(shape);
     target.draw(text);
+}
+
+template<typename T>
+T Button<T>::getMessage(){
+    return message;
 }
 }  // namespace Button
