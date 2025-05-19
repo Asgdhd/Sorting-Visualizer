@@ -1,5 +1,5 @@
 #include "ArrayVisualizer.hpp"
-#include <algorithm>
+
 
 ArrayVisualizer::ArrayVisualizer(sf::RenderWindow& win, float visHeight)
     : window(win), visualizationHeight(visHeight) {}
@@ -25,9 +25,7 @@ void ArrayVisualizer::draw(bool isSwapping, std::pair<size_t, size_t> swapIndice
         float height = (array[i] / maxValue) * (visualizationHeight - verticalPadding);
         sf::RectangleShape column(sf::Vector2f(columnWidth * 0.95f, height));
 
-
         float xPos = i * columnWidth + window.getSize().x * 0.01f;
-
 
         if (isSwapping && (i == swapIndices.first || i == swapIndices.second)) {
             size_t targetIndex = (i == swapIndices.first) ? swapIndices.second : swapIndices.first;

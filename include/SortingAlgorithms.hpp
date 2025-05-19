@@ -1,39 +1,69 @@
 #pragma once
 #include <vector>
+#include <stack>
+#include <SFML/System.hpp>
+#include <algorithm>
+
 
 namespace Sorting {
-    enum class ArrayType {
-        Random,
-        NearlySorted,
-        Reversed,
-        ManyDuplicates
-    };
-
-    class ArrayGenerator {
+    class SortingAlgorithm {
     public:
-        static std::vector<int> generate(size_t size, ArrayType type);
+        virtual ~SortingAlgorithm() = default;
+        virtual void sort(std::vector<int>& array, bool& sortingCompleted, float deltaTime) = 0;
+        virtual void reset() = 0;
+        virtual void resetCounters() = 0;
+        virtual size_t getSwapCount() const = 0;
+        virtual size_t getComparisonCount() const = 0;
+        virtual bool isSwappingState() const = 0;
+        virtual std::pair<size_t, size_t> getSwapIndices() const = 0;
+        virtual float getSwapProgress() const = 0;
     };
 
-    class BubbleSort {
+    class BubbleSort : public SortingAlgorithm {
+        private:
+            size_t i = 0;
+            size_t j = 0;
+            bool isSwapping = false;
+            size_t swapIndex1 = 0;
+            size_t swapIndex2 = 0;
+            float swapProgress = 0.f;
+            size_t swapCount = 0;
+            size_t comparisonCount = 0;
+            bool swapped = false;
+
+        public:
+            BubbleSort() = default;
+            void sort(std::vector<int>& array, bool& sortingCompleted, float deltaTime) override;
+            void reset() override;
+            void resetCounters() override;
+            size_t getSwapCount() const override;
+            size_t getComparisonCount() const override;
+            bool isSwappingState() const override;
+            std::pair<size_t, size_t> getSwapIndices() const override;
+            float getSwapProgress() const override;
+        };
+
+    class SelectionSort : public SortingAlgorithm {
     private:
-        size_t i;
-        size_t j;
-        bool isSwapping;
-        size_t swapIndex1;
-        size_t swapIndex2;
-        float swapProgress;
-        size_t swapCount;
-        size_t comparisonCount;
+        size_t i = 0;
+        size_t minIndex = 0;
+        size_t j = 0;
+        bool isSwapping = false;
+        size_t swapIndex1 = 0;
+        size_t swapIndex2 = 0;
+        float swapProgress = 0.f;
+        size_t swapCount = 0;
+        size_t comparisonCount = 0;
 
     public:
-        BubbleSort();
-        void sort(std::vector<int>& array, bool& sortingCompleted, float deltaTime);
-        void reset();
-        void resetCounters();
-        size_t getSwapCount() const;
-        size_t getComparisonCount() const;
-        bool isSwappingState() const;
-        std::pair<size_t, size_t> getSwapIndices() const;
-        float getSwapProgress() const;
+        SelectionSort() = default;
+        void sort(std::vector<int>& array, bool& sortingCompleted, float deltaTime) override;
+        void reset() override;
+        void resetCounters() override;
+        size_t getSwapCount() const override;
+        size_t getComparisonCount() const override;
+        bool isSwappingState() const override;
+        std::pair<size_t, size_t> getSwapIndices() const override;
+        float getSwapProgress() const override;
     };
 }

@@ -129,6 +129,30 @@ SortingVisualizer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/build
 .PHONY : SortingVisualizer/fast
 
+src/ArrayGenerator.o: src/ArrayGenerator.cpp.o
+.PHONY : src/ArrayGenerator.o
+
+# target to build an object file
+src/ArrayGenerator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/ArrayGenerator.cpp.o
+.PHONY : src/ArrayGenerator.cpp.o
+
+src/ArrayGenerator.i: src/ArrayGenerator.cpp.i
+.PHONY : src/ArrayGenerator.i
+
+# target to preprocess a source file
+src/ArrayGenerator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/ArrayGenerator.cpp.i
+.PHONY : src/ArrayGenerator.cpp.i
+
+src/ArrayGenerator.s: src/ArrayGenerator.cpp.s
+.PHONY : src/ArrayGenerator.s
+
+# target to generate assembly for a file
+src/ArrayGenerator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/ArrayGenerator.cpp.s
+.PHONY : src/ArrayGenerator.cpp.s
+
 src/ArrayVisualizer.o: src/ArrayVisualizer.cpp.o
 .PHONY : src/ArrayVisualizer.o
 
@@ -234,6 +258,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SortingVisualizer"
+	@echo "... src/ArrayGenerator.o"
+	@echo "... src/ArrayGenerator.i"
+	@echo "... src/ArrayGenerator.s"
 	@echo "... src/ArrayVisualizer.o"
 	@echo "... src/ArrayVisualizer.i"
 	@echo "... src/ArrayVisualizer.s"

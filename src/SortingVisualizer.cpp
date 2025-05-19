@@ -1,6 +1,5 @@
 #include "SortingVisualizer.hpp"
-#include <iostream>
-#include <sstream>
+
 
 namespace {
     constexpr float kWindowSizeFactor = 0.8f;
@@ -24,41 +23,47 @@ namespace SortingVisualizer {
         sf::RenderWindow window(sf::VideoMode(width, height), "Sorting Visualizer", sf::Style::Close);
         window.setFramerateLimit(60);
 
-        AppState state;
+        SortingVisualizer::AppState state;
         state.visualizationHeight = height * 0.8f;
-        state.array = Sorting::ArrayGenerator::generate(state.arraySize, state.arrayType);
+        state.array = ArrayGenerator::ArrayGenerator::generate(state.arraySize, ArrayGenerator::ArrayType::Random);
 
         ArrayVisualizer visualizer(window, state.visualizationHeight);
 
-        std::vector<Button::Button<Screen>> mainButtons;
+        std::vector<Button::Button<SortingVisualizer::Screen>> mainButtons;
         mainButtons.emplace_back(
             width * 0.5f - width * 0.1f, height * 0.25f, width * 0.2f, height * 0.05f,
             font, "Bubble Sort",
             kButtonColor, kHoverColor, sf::Color::White, kDisabledColor,
-            Screen::BubbleSortScreen
+            SortingVisualizer::Screen::BubbleSortScreen
+        );
+        mainButtons.emplace_back(
+            width * 0.5f - width * 0.1f, height * 0.35f, width * 0.2f, height * 0.05f,
+            font, "Selection Sort",
+            kButtonColor, kHoverColor, sf::Color::White, kDisabledColor,
+            SortingVisualizer::Screen::SelectionSortScreen
         );
 
-        Button::Button<Screen> backButton(
+        Button::Button<SortingVisualizer::Screen> backButton(
             width * 0.02f, height * 0.02f, width * 0.1f, height * 0.04f,
             font, "Back",
             sf::Color(200, 80, 80), sf::Color(220, 100, 100),
             sf::Color::White, sf::Color::White,
-            Screen::MainScreen
+            SortingVisualizer::Screen::MainScreen
         );
 
-        std::vector<Button::Button<Sorting::ArrayType>> arrayTypeButtons = {
+        std::vector<Button::Button<ArrayGenerator::ArrayType>> arrayTypeButtons = {
             {width * 0.77f, height * 0.1f, width * 0.15f, height * 0.03f, font, "Random",
              kButtonColor, kHoverColor, sf::Color::White, kDisabledColor,
-             Sorting::ArrayType::Random},
+             ArrayGenerator::ArrayType::Random},
             {width * 0.77f, height * 0.15f, width * 0.15f, height * 0.03f, font, "Nearly Sorted",
              kButtonColor, kHoverColor, sf::Color::White, kDisabledColor,
-             Sorting::ArrayType::NearlySorted},
+             ArrayGenerator::ArrayType::NearlySorted},
             {width * 0.77f, height * 0.2f, width * 0.15f, height * 0.03f, font, "Reversed",
              kButtonColor, kHoverColor, sf::Color::White, kDisabledColor,
-             Sorting::ArrayType::Reversed},
+             ArrayGenerator::ArrayType::Reversed},
             {width * 0.77f, height * 0.25f, width * 0.15f, height * 0.03f, font, "Duplicates",
              kButtonColor, kHoverColor, sf::Color::White, kDisabledColor,
-             Sorting::ArrayType::ManyDuplicates}
+             ArrayGenerator::ArrayType::ManyDuplicates}
         };
 
         std::vector<Button::Button<size_t>> sizeButtons = {
@@ -92,7 +97,8 @@ namespace SortingVisualizer {
         metricsText.setFillColor(sf::Color::White);
         metricsText.setPosition(width * 0.77f, height * 0.4f);
 
-        Screen currentScreen = Screen::MainScreen;
+        SortingVisualizer::Screen currentScreen = SortingVisualizer::Screen::MainScreen;
+
         while (window.isOpen()) {
             float deltaTime = state.clock.restart().asSeconds();
 
@@ -107,22 +113,38 @@ namespace SortingVisualizer {
             window.clear(kMainColor);
 
             switch (currentScreen) {
-                case Screen::MainScreen: {
+                case SortingVisualizer::Screen::MainScreen: {
                     for (auto& btn : mainButtons) {
                         btn.update(mousePos);
                         btn.render(window);
                         if (btn.isClicked) {
                             currentScreen = btn.getMessage();
-                            state.array = Sorting::ArrayGenerator::generate(state.arraySize, state.arrayType);
-                            state.sorter.resetCounters();
+                            state.array = ArrayGenerator::ArrayGenerator::generate(state.arraySize, state.arrayType);
+                            if (currentScreen == SortingVisualizer::Screen::BubbleSortScreen) {
+                                state.currentSorter = &state.bubbleSorter;
+                            } else if (currentScreen == SortingVisualizer::Screen::SelectionSortScreen) {
+                                state.currentSorter = &state.selectionSorter;
+                            }
+                            state.currentSorter->resetCounters();
                         }
                     }
                     break;
                 }
 
-                case Screen::BubbleSortScreen: {
+                case SortingVisualizer::Screen::BubbleSortScreen:
+                case SortingVisualizer::Screen::SelectionSortScreen: {
+                    if (currentScreen == SortingVisualizer::Screen::BubbleSortScreen) {
+                        state.currentSorter = &state.bubbleSorter;
+                    } else {
+                        state.currentSorter = &state.selectionSorter;
+                    }
+
                     visualizer.setArray(state.array);
-                    visualizer.draw(state.sorter.isSwappingState(), state.sorter.getSwapIndices(), state.sorter.getSwapProgress());
+                    visualizer.draw(
+                        state.currentSorter->isSwappingState(),
+                        state.currentSorter->getSwapIndices(),
+                        state.currentSorter->getSwapProgress()
+                    );
 
                     for (auto& btn : arrayTypeButtons) btn.isEnabled = !state.sortingActive;
                     for (auto& btn : sizeButtons) btn.isEnabled = !state.sortingActive;
@@ -131,11 +153,11 @@ namespace SortingVisualizer {
                     backButton.update(mousePos);
                     backButton.render(window);
                     if (backButton.isClicked) {
-                        currentScreen = Screen::MainScreen;
+                        currentScreen = SortingVisualizer::Screen::MainScreen;
                         state.sortingActive = false;
                         state.sortingCompleted = false;
-                        state.array = Sorting::ArrayGenerator::generate(state.arraySize, state.arrayType);
-                        state.sorter.reset();
+                        state.array = ArrayGenerator::ArrayGenerator::generate(state.arraySize, state.arrayType);
+                        state.currentSorter->reset();
                     }
 
                     for (auto& btn : arrayTypeButtons) {
@@ -143,8 +165,8 @@ namespace SortingVisualizer {
                         btn.render(window);
                         if (btn.isClicked && btn.isEnabled) {
                             state.arrayType = btn.getMessage();
-                            state.array = Sorting::ArrayGenerator::generate(state.arraySize, state.arrayType);
-                            state.sorter.resetCounters();
+                            state.array = ArrayGenerator::ArrayGenerator::generate(state.arraySize, state.arrayType);
+                            state.currentSorter->resetCounters();
                         }
                     }
 
@@ -153,8 +175,8 @@ namespace SortingVisualizer {
                         btn.render(window);
                         if (btn.isClicked && btn.isEnabled) {
                             state.arraySize = btn.getMessage();
-                            state.array = Sorting::ArrayGenerator::generate(state.arraySize, state.arrayType);
-                            state.sorter.resetCounters();
+                            state.array = ArrayGenerator::ArrayGenerator::generate(state.arraySize, state.arrayType);
+                            state.currentSorter->resetCounters();
                         }
                     }
 
@@ -163,7 +185,7 @@ namespace SortingVisualizer {
                     if (startButton.isClicked && startButton.isEnabled) {
                         state.sortingActive = true;
                         state.sortingCompleted = false;
-                        state.sorter.resetCounters();
+                        state.currentSorter->resetCounters();
                     }
 
                     resetButton.update(mousePos);
@@ -171,17 +193,17 @@ namespace SortingVisualizer {
                     if (resetButton.isClicked) {
                         state.sortingActive = false;
                         state.sortingCompleted = false;
-                        state.array = Sorting::ArrayGenerator::generate(state.arraySize, state.arrayType);
-                        state.sorter.reset();
+                        state.array = ArrayGenerator::ArrayGenerator::generate(state.arraySize, state.arrayType);
+                        state.currentSorter->reset();
                     }
 
                     if (state.sortingActive && !state.sortingCompleted) {
-                        state.sorter.sort(state.array, state.sortingCompleted, deltaTime);
+                        state.currentSorter->sort(state.array, state.sortingCompleted, deltaTime);
                     }
 
                     std::stringstream ss;
-                    ss << "Swaps: " << state.sorter.getSwapCount() << "\n"
-                       << "Comparisons: " << state.sorter.getComparisonCount();
+                    ss << "Swaps: " << state.currentSorter->getSwapCount() << "\n"
+                       << "Comparisons: " << state.currentSorter->getComparisonCount();
                     metricsText.setString(ss.str());
                     window.draw(metricsText);
 
