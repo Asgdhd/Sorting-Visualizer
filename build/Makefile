@@ -129,6 +129,54 @@ SortingVisualizer/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/build
 .PHONY : SortingVisualizer/fast
 
+src/ArrayVisualizer.o: src/ArrayVisualizer.cpp.o
+.PHONY : src/ArrayVisualizer.o
+
+# target to build an object file
+src/ArrayVisualizer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o
+.PHONY : src/ArrayVisualizer.cpp.o
+
+src/ArrayVisualizer.i: src/ArrayVisualizer.cpp.i
+.PHONY : src/ArrayVisualizer.i
+
+# target to preprocess a source file
+src/ArrayVisualizer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.i
+.PHONY : src/ArrayVisualizer.cpp.i
+
+src/ArrayVisualizer.s: src/ArrayVisualizer.cpp.s
+.PHONY : src/ArrayVisualizer.s
+
+# target to generate assembly for a file
+src/ArrayVisualizer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.s
+.PHONY : src/ArrayVisualizer.cpp.s
+
+src/SortingAlgorithms.o: src/SortingAlgorithms.cpp.o
+.PHONY : src/SortingAlgorithms.o
+
+# target to build an object file
+src/SortingAlgorithms.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o
+.PHONY : src/SortingAlgorithms.cpp.o
+
+src/SortingAlgorithms.i: src/SortingAlgorithms.cpp.i
+.PHONY : src/SortingAlgorithms.i
+
+# target to preprocess a source file
+src/SortingAlgorithms.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.i
+.PHONY : src/SortingAlgorithms.cpp.i
+
+src/SortingAlgorithms.s: src/SortingAlgorithms.cpp.s
+.PHONY : src/SortingAlgorithms.s
+
+# target to generate assembly for a file
+src/SortingAlgorithms.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SortingVisualizer.dir/build.make CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.s
+.PHONY : src/SortingAlgorithms.cpp.s
+
 src/SortingVisualizer.o: src/SortingVisualizer.cpp.o
 .PHONY : src/SortingVisualizer.o
 
@@ -186,6 +234,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... SortingVisualizer"
+	@echo "... src/ArrayVisualizer.o"
+	@echo "... src/ArrayVisualizer.i"
+	@echo "... src/ArrayVisualizer.s"
+	@echo "... src/SortingAlgorithms.o"
+	@echo "... src/SortingAlgorithms.i"
+	@echo "... src/SortingAlgorithms.s"
 	@echo "... src/SortingVisualizer.o"
 	@echo "... src/SortingVisualizer.i"
 	@echo "... src/SortingVisualizer.s"

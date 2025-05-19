@@ -1,23 +1,26 @@
 #pragma once
-
 #include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-
+#include <vector>
 #include "Button.hpp"
+#include "ArrayVisualizer.hpp"
+#include "SortingAlgorithms.hpp"
 
 namespace SortingVisualizer {
-enum class Screen {
-    MainScreen,
-    FirstScreen,
-    SecondScreen,
-    ThirdScreen
-};
+    enum class Screen {
+        MainScreen,
+        BubbleSortScreen
+    };
 
-void StartApp();
+    struct AppState {
+        std::vector<int> array;
+        Sorting::ArrayType arrayType = Sorting::ArrayType::Random;
+        size_t arraySize = 20;
+        bool sortingActive = false;
+        bool sortingCompleted = false;
+        float visualizationHeight = 0.f;
+        Sorting::BubbleSort sorter;
+        sf::Clock clock;
+    };
 
-void RenderMainWindow(sf::RenderWindow& window, Screen& currentScreen, std::vector<Button::Button<Screen>> mainScreenButtons,
-                      Button::Button<Screen> backButton, std::vector<sf::Text> texts);
-void RenderalgorithmWindow(sf::RenderWindow& window, sf::Vector2i& mousePos, Screen& currentScreen, Button::Button<Screen>& backButton,
-                           sf::Text& text);
-
-}  // namespace SortingVisualizer
+    void StartApp();
+}

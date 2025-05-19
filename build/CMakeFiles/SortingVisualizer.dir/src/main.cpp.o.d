@@ -1034,4 +1034,5 @@ CMakeFiles/SortingVisualizer.dir/src/main.cpp.o: \
   /usr/local/include/SFML/Graphics/Text.hpp \
   /usr/local/include/SFML/Graphics/VertexBuffer.hpp \
   /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/include/Button.hpp \
-  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/include/../src/Button.tpp
+  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/include/ArrayVisualizer.hpp \
+  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/include/SortingAlgorithms.hpp

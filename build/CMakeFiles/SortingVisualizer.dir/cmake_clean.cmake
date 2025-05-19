@@ -1,4 +1,8 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o.d"
+  "CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o.d"
   "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o"
   "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o.d"
   "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o"

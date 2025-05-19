@@ -72,10 +72,38 @@ include CMakeFiles/SortingVisualizer.dir/flags.make
 CMakeFiles/SortingVisualizer.dir/codegen:
 .PHONY : CMakeFiles/SortingVisualizer.dir/codegen
 
+CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o: CMakeFiles/SortingVisualizer.dir/flags.make
+CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o: /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/ArrayVisualizer.cpp
+CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o: CMakeFiles/SortingVisualizer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o -MF CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o.d -o CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o -c /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/ArrayVisualizer.cpp
+
+CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/ArrayVisualizer.cpp > CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.i
+
+CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/ArrayVisualizer.cpp -o CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.s
+
+CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o: CMakeFiles/SortingVisualizer.dir/flags.make
+CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o: /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingAlgorithms.cpp
+CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o: CMakeFiles/SortingVisualizer.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o -MF CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o.d -o CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o -c /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingAlgorithms.cpp
+
+CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.i"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingAlgorithms.cpp > CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.i
+
+CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.s"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingAlgorithms.cpp -o CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.s
+
 CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o: CMakeFiles/SortingVisualizer.dir/flags.make
 CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o: /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingVisualizer.cpp
 CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o: CMakeFiles/SortingVisualizer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o -MF CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o.d -o CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o -c /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingVisualizer.cpp
 
 CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.i: cmake_force
@@ -89,7 +117,7 @@ CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.s: cmake_force
 CMakeFiles/SortingVisualizer.dir/src/main.cpp.o: CMakeFiles/SortingVisualizer.dir/flags.make
 CMakeFiles/SortingVisualizer.dir/src/main.cpp.o: /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/main.cpp
 CMakeFiles/SortingVisualizer.dir/src/main.cpp.o: CMakeFiles/SortingVisualizer.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/SortingVisualizer.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/SortingVisualizer.dir/src/main.cpp.o"
 	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/SortingVisualizer.dir/src/main.cpp.o -MF CMakeFiles/SortingVisualizer.dir/src/main.cpp.o.d -o CMakeFiles/SortingVisualizer.dir/src/main.cpp.o -c /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/main.cpp
 
 CMakeFiles/SortingVisualizer.dir/src/main.cpp.i: cmake_force
@@ -102,12 +130,16 @@ CMakeFiles/SortingVisualizer.dir/src/main.cpp.s: cmake_force
 
 # Object files for target SortingVisualizer
 SortingVisualizer_OBJECTS = \
+"CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o" \
+"CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o" \
 "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o" \
 "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o"
 
 # External object files for target SortingVisualizer
 SortingVisualizer_EXTERNAL_OBJECTS =
 
+SortingVisualizer: CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o
+SortingVisualizer: CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o
 SortingVisualizer: CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o
 SortingVisualizer: CMakeFiles/SortingVisualizer.dir/src/main.cpp.o
 SortingVisualizer: CMakeFiles/SortingVisualizer.dir/build.make
@@ -115,7 +147,7 @@ SortingVisualizer: /usr/local/lib/libsfml-graphics.2.6.2.dylib
 SortingVisualizer: /usr/local/lib/libsfml-window.2.6.2.dylib
 SortingVisualizer: /usr/local/lib/libsfml-system.2.6.2.dylib
 SortingVisualizer: CMakeFiles/SortingVisualizer.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable SortingVisualizer"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable SortingVisualizer"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/SortingVisualizer.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -1,6 +1,6 @@
-CMakeFiles/SortingVisualizer.dir/src/Button.cpp.o: \
-  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/Button.cpp \
-  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/include/Button.hpp \
+CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o: \
+  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/ArrayVisualizer.cpp \
+  /Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/include/ArrayVisualizer.hpp \
   /usr/local/include/SFML/Graphics.hpp \
   /usr/local/include/SFML/Window.hpp /usr/local/include/SFML/System.hpp \
   /usr/local/include/SFML/Config.hpp \

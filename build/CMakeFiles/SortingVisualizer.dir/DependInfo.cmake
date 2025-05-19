@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/ArrayVisualizer.cpp" "CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o.d"
+  "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingAlgorithms.cpp" "CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o.d"
   "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/SortingVisualizer.cpp" "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o.d"
   "/Users/anastasiakrahmalnikova/projects/SortingVisualizer/Sorting-Visualizer/src/main.cpp" "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o" "gcc" "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o.d"
   )
