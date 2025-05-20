@@ -16,8 +16,3 @@ target_link_libraries(SortingVisualizer
     sfml-window
     sfml-system
 )
-
-add_custom_command(TARGET SortingVisualizer POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory
-    ${CMAKE_SOURCE_DIR}/assets $<TARGET_FILE_DIR:SortingVisualizer>/assets
-)

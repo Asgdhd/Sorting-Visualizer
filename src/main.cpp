@@ -1,6 +1,6 @@
 #include "SortingVisualizer.hpp"
 
-int main(){
+int main() {
     SortingVisualizer::StartApp();
     return 0;
 }

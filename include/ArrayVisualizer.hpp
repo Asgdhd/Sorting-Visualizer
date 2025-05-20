@@ -1,19 +1,17 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <algorithm>
 #include <vector>
 
 class ArrayVisualizer {
-private:
+ private:
     sf::RenderWindow& window;
     std::vector<int> array;
-    float columnWidth = 0.f;
-    float visHeight;
+    float columnWidth;
+    float visualizationHeight;
 
-public:
+ public:
     ArrayVisualizer(sf::RenderWindow& win, float visHeight);
     void setArray(const std::vector<int>& arr);
-    void draw(bool isSwapping,
-              std::pair<size_t, size_t> swapIdx,
-              float swapProgress);
-    void updateWindowSize();
+    void draw(bool isSwapping, std::pair<size_t, size_t> swapIndices, float swapProgress);
 };

@@ -1,73 +1,79 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <string>
 
 namespace Button {
-
 template<typename T>
 class Button {
-private:
+ private:
     sf::Text text;
+    sf::Font font;
     sf::RectangleShape shape;
-    sf::Color normal, hover, pressed, disabled;
+
+    sf::Color currentColor;
+    sf::Color normalColor;
+    sf::Color hoverColor;
+    sf::Color pressedColor;
+    sf::Color unabledColor;
+
     T message;
 
-public:
-    bool isClicked = false;
-    bool isEnabled = true;
+ public:
+    bool isClicked;
+    bool isEnabled;
 
-    Button() = default;
+    Button() : isClicked(false), isEnabled(true) {}
 
-    Button(float x, float y, float w, float h,
-           sf::Font& font, const std::string& str,
-           sf::Color normalColor, sf::Color hoverColor,
-           sf::Color pressedColor, sf::Color disabledColor,
-           T msg)
-        : normal(normalColor)
-        , hover(hoverColor)
-        , pressed(pressedColor)
-        , disabled(disabledColor)
-        , message(msg)
-    {
+    Button(float x, float y, float width, float height, sf::Font& font, const std::string& text, sf::Color normalColor, sf::Color hoverColor,
+           sf::Color pressedColor, sf::Color unabledColor, T message)
+        : normalColor(normalColor),
+          hoverColor(hoverColor),
+          pressedColor(pressedColor),
+          unabledColor(unabledColor),
+          isClicked(false),
+          isEnabled(true),
+          message(message) {
         shape.setPosition(x, y);
-        shape.setSize({ w, h });
-        shape.setFillColor(normal);
+        shape.setSize(sf::Vector2f(width, height));
+        shape.setFillColor(normalColor);
 
-        text.setFont(font);
-        text.setString(str);
-        text.setCharacterSize(static_cast<unsigned>(h * 0.5f));
-        text.setFillColor(sf::Color::Black);
+        this->text.setFont(font);
+        this->text.setString(text);
+        this->text.setCharacterSize(20);
+        this->text.setFillColor(sf::Color::White);
 
-        auto tb = text.getLocalBounds();
-        text.setOrigin(tb.left + tb.width / 2.0f, tb.top + tb.height / 2.0f);
-        text.setPosition(x + w / 2.0f, y + h / 2.0f);
+        sf::FloatRect textBounds = this->text.getLocalBounds();
+        this->text.setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);
+        this->text.setPosition(x + width / 2.0f, y + height / 2.0f);
+    }
+
+    void setText(const std::string& newText) {
+        text.setString(newText);
+        sf::FloatRect textBounds = text.getLocalBounds();
+        text.setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);
+        text.setPosition(shape.getPosition().x + shape.getSize().x / 2.0f, shape.getPosition().y + shape.getSize().y / 2.0f);
     }
 
     void update(const sf::Vector2i& mousePos) {
-        isClicked = false;
-
         if (!isEnabled) {
-            shape.setFillColor(disabled);
+            currentColor = unabledColor;
+            shape.setFillColor(currentColor);
             return;
         }
 
-        bool inside = shape.getGlobalBounds().contains(
-            static_cast<float>(mousePos.x),
-            static_cast<float>(mousePos.y)
-        );
+        if (shape.getGlobalBounds().contains(static_cast<sf::Vector2f>(mousePos))) {
+            currentColor = hoverColor;
 
-        if (inside && sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-            shape.setFillColor(pressed);
-        }
-        else if (inside) {
-            shape.setFillColor(hover);
             if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+                currentColor = pressedColor;
                 isClicked = true;
+            } else {
+                isClicked = false;
             }
+        } else {
+            currentColor = normalColor;
+            isClicked = false;
         }
-        else {
-            shape.setFillColor(normal);
-        }
+        shape.setFillColor(currentColor);
     }
 
     void render(sf::RenderTarget& target) {
@@ -75,9 +81,6 @@ public:
         target.draw(text);
     }
 
-    T getMessage() const {
-        return message;
-    }
+    T getMessage() const { return message; }
 };
-
-}
+}  // namespace Button

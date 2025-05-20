@@ -1,53 +1,43 @@
 #include "ArrayVisualizer.hpp"
-#include <algorithm>
 
-ArrayVisualizer::ArrayVisualizer(sf::RenderWindow& win, float vh)
-: window(win), visHeight(vh)
-{
-    if (visHeight <= 0.f) visHeight = 1.f;
-    updateWindowSize();
+ArrayVisualizer::ArrayVisualizer(sf::RenderWindow& win, float visHeight) : window(win), visualizationHeight(visHeight) {
 }
 
 void ArrayVisualizer::setArray(const std::vector<int>& arr) {
     array = arr;
-    updateWindowSize();
-}
-
-void ArrayVisualizer::updateWindowSize() {
-    if (array.empty()) {
-        columnWidth = 0.f;
-        return;
+    if (!array.empty()) {
+        columnWidth = (window.getSize().x * 0.75f) / static_cast<float>(array.size());
     }
-    float winWidth = static_cast<float>(window.getSize().x);
-    if (winWidth <= 0.f) winWidth = 1.f;
-    columnWidth = winWidth / static_cast<float>(array.size());
 }
 
-void ArrayVisualizer::draw(bool isSwapping,
-                           std::pair<size_t, size_t> swapIdx,
-                           float swapProgress)
-{
-    if (array.empty() || visHeight <= 0.f) return;
+void ArrayVisualizer::draw(bool isSwapping, std::pair<size_t, size_t> swapIndices, float swapProgress) {
+    if (array.empty())
+        return;
 
-    const int N = array.size();
-    float maxVal = static_cast<float>(*std::max_element(array.begin(), array.end()));
-    if (maxVal <= 0.f) maxVal = 1.f;
+    float maxValue = *std::max_element(array.begin(), array.end());
+    if (maxValue == 0)
+        return;
 
-    for (int i = 0; i < N; ++i) {
-        float height = (static_cast<float>(array[i]) / maxVal) * visHeight;
-        sf::RectangleShape rect;
+    const float verticalPadding = visualizationHeight * 0.2f;
+    const float verticalOffset = visualizationHeight * 0.3f;
+    const float baseY = visualizationHeight - verticalPadding + verticalOffset;
 
-        float gap = std::min(1.f, columnWidth * 0.1f);
-        float barWidth = std::max(columnWidth - gap, 1.f);
+    for (size_t i = 0; i < array.size(); ++i) {
+        float height = (array[i] / maxValue) * (visualizationHeight - verticalPadding);
+        sf::RectangleShape column(sf::Vector2f(columnWidth * 0.95f, height));
 
-        rect.setSize({barWidth, height});
-        rect.setPosition(i * columnWidth + gap/2, visHeight - height);
-        rect.setFillColor(sf::Color(200, 200, 200));
+        float xPos = i * columnWidth + window.getSize().x * 0.01f;
 
-        if (isSwapping && (i == int(swapIdx.first) || i == int(swapIdx.second))) {
-            rect.setFillColor(sf::Color::Red);
+        if (isSwapping && (i == swapIndices.first || i == swapIndices.second)) {
+            size_t targetIndex = (i == swapIndices.first) ? swapIndices.second : swapIndices.first;
+            float targetX = targetIndex * columnWidth + window.getSize().x * 0.01f;
+            xPos = xPos + (targetX - xPos) * swapProgress;
+            column.setFillColor(sf::Color(250, 100, 100));
+        } else {
+            column.setFillColor(sf::Color(100, 250, 150));
         }
 
-        window.draw(rect);
+        column.setPosition(xPos, baseY - height);
+        window.draw(column);
     }
 }

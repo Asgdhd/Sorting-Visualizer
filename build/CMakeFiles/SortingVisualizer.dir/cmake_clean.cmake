@@ -1,0 +1,19 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/SortingVisualizer.dir/src/ArrayGenerator.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/ArrayGenerator.cpp.o.d"
+  "CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/ArrayVisualizer.cpp.o.d"
+  "CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/SortingAlgorithms.cpp.o.d"
+  "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/SortingVisualizer.cpp.o.d"
+  "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o"
+  "CMakeFiles/SortingVisualizer.dir/src/main.cpp.o.d"
+  "SortingVisualizer"
+  "SortingVisualizer.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/SortingVisualizer.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()
